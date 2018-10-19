@@ -1,0 +1,25 @@
+%script{:src => "/assets/jquery.raty.js"}
+%link{:href => "/assets/jquery.raty.css", :rel => "stylesheet", :type => "text/css"}/
+.container
+  = back_button_link(dashboard_path)
+  .panel.panel-primary
+    .panel-heading
+      %h3 Give Your Feedback
+    .panel-body
+      = form_for @feedback do |f|
+        .row
+          .col-md-4.col-md-offset-1
+            .form-group
+              %label Rating
+              #default
+              = rservice_hidden_field('rating', '',f)
+              = rservice_hidden_field('portfolio_id',params[:portfolio_id],f)
+              = rservice_hidden_field('service_request_id',params[:request_id],f)
+        .row
+          .col-md-4.col-md-offset-1
+            .form-group
+              = rservice_text_area('description','Remarks',f)
+        .row
+          .col-md-4.col-md-offset-1
+            .form-group
+              = rservice_submit_button('Post',f,'btn-primary')

@@ -1,0 +1,30 @@
+- if addresses.blank?
+  .alert.alert-warning
+    No Address added. Please add Address first to avail the services.!!
+-else
+  .col-sm-2.col-sm-offset-1
+    %b Choose your Address:
+  .col-xs-12
+    - addresses.each do |address|
+      .col-xs-3.card.text-center.mg-btn
+        - if header
+          %div.col-xs-12
+            %div.pull-right
+              = address_action_links(address)
+        .card-body
+          = radio_button_tag 'service_request[address_id]', address.id, checked: true  if !header
+          %br
+          = reservice_value_printer("Flat Number: ", address.try(:flat_number)) 
+          %br 
+          = reservice_value_printer("Street Name: ", address.try(:street_name))
+          %br 
+          = reservice_value_printer("Land Mark: ", address.try(:landmark))
+          %br 
+          = reservice_value_printer("City: ", address.city.try(:name))
+          %br 
+          = reservice_value_printer("Pin Code: ", address.try(:pin_code))
+          - if address.google_address
+            %div
+              %br 
+              = reservice_value_printer("Google Address: ", address.try(:google_address))
+  

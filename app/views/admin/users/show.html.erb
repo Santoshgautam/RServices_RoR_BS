@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="add-new">
+      <%=back_button_link(admin_users_path) %>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>User Details</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="main-container">
+          <dl class="dl-horizontal">
+            <dt><strong>Name:</strong></dt>
+            <dd><%= @user.full_name %></dd>
+            <dt><strong>Email:</strong></dt>
+            <dd><%= @user.email %></dd>
+            <dt><strong>Phone:</strong></dt>
+            <dd><%= @user.phone.present? ? @user.phone : "-" %></dd>
+            <dt><strong>Address:</strong></dt>
+            <% if @user.addresses.present? %>
+            <div class="row">
+              <%=render :partial => 'admin/users/user_address_list', :locals => { :addresses => @user.addresses, :header => true } %>
+            </div>
+            <% end %>       
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+!!!
+/
+  author: W3layouts
+  author URL: http://w3layouts.com
+  License: Creative Commons Attribution 3.0 Unported
+  License URL: http://creativecommons.org/licenses/by/3.0/
+%html
+  %head
+    %title R-services| Get your services done anytime, anywhere.
+    / for-mobile-apps
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "Catchy Carz Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, \nSmartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design", :name => "keywords"}/
+  %body
+    / /banner-section
+    = render :partial => 'common/header'
+    #myModal1.modal.ab.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.about{:role => "document"}
+        .modal-content.about
+          .modal-header
+            %button.close.ab{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+            .discount
+              %h3 Get Offers &amp; Discount of
+              %p Catchy Carz Brand VL in New York
+              %form{:action => "#", :method => "post"}
+                %select#country5.frm-field.required{:onchange => "change_country(this.value)"}
+                  %option{:selected => "selected", :value => "-1"} -Buying Time Period-
+                  %option{:value => "0"} Just Researching
+                  %option{:value => "7"} 1 Week
+                  %option{:value => "14"} 2 Weeks
+                  %option{:value => "30"} 1 Month
+                  %option{:value => "60"} 2 Months
+                %input.Pin.code{:name => "pin code", :placeholder => "Pin code", :required => "", :type => "text"}/
+          .modal-body.about
+            .dis-contact
+              %h4 Contact Information
+              %form{:action => "#", :method => "post"}
+                %input.name.active{:name => "name", :placeholder => "Name", :required => "", :type => "text"}/
+                %input.email{:name => "email", :placeholder => "Email", :required => "", :type => "text"}/
+                %input.phone{:name => "phone", :placeholder => "Phone", :required => "", :type => "text"}/
+                .d-c
+                  %span.checkbox1
+                    %label.checkbox
+                      %input{:checked => "checked", :name => "", :type => "checkbox"}/
+                      = succeed "I" do
+                        %i
+                %input{:type => "submit", :value => "Find Offers"}/
+    / //discounts
+    / //sign-up
+    = render :partial => 'devise/registrations/sign_up_form'
+    = render :partial => 'devise/sessions/login_form'
+    / //sign-up
+    / /location
+    #myModal4.modal.ab.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.sign{:role => "document"}
+        .modal-content.about
+          .modal-header.one
+            %button.close.sg{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+            .discount.one
+              %h3 Please Tell Us Your City
+          .modal-body.about
+            .login-top.sign-top.location
+              %form{:action => "#", :method => "post"}
+                %select#country12.frm-field.required{:onchange => "change_country(this.value)"}
+                  %option{:value => "null"} Select City
+                  %option{:value => "city"} Delhi
+                  %option{:value => "city"} Banglore
+                  %option{:value => "city"} Noida
+                  %option{:value => "city"} Pune
+                  %option{:value => "city"} Jhansi
+                  %option{:value => "city"} Lucknow
+                  %option{:value => "city"} Goa
+                  %option{:value => "city"} Mumbai
+                  %option{:value => "city"} Gujrat
+                  %option{:value => "city"} Hyderabad
+                  %option{:value => "city"} Gorakhpur
+                  %option{:value => "city"} Patna    
+    .featured_section_w3l
+      .second-container
+        #service-title
+        %div#services_data
+          = render  'services_list',:locals => { :services => @services }
+    = render :partial => 'common/footer'
+    
+   

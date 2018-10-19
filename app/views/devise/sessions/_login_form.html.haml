@@ -1,0 +1,20 @@
+#login.modal.ab.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.sign{:role => "document"}
+    .modal-content.about
+      .modal-header.one
+        %button.close.sg#close_button{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        .discount.one
+          %h3 Log In
+      .modal-body.about
+        .login-top.sign-top.one
+          = form_for(resource, as: resource_name, url: login_path, :html => {"data-remote": true}) do |f|
+            .div#display_errors.error-text
+            = f.text_field :email, :placeholder => "Email", :required => true, :class => "email"
+            = f.password_field :password, :placeholder => "Password", :required => true, :minlength => "6", :class => "password"
+            / = f.check_box :remember_me
+            / = f.label :remember_me
+            .actions
+              = f.submit "Log In"
+            .forgot-password
+              = link_to "Forgot Password", new_password_path(resource_name), :id => 'forgot_pssd'

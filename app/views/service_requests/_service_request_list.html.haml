@@ -1,0 +1,11 @@
+%tr
+  %td= request.service_name
+  %td.td_width= request.user_address
+  %td= request.portfolio.try(:portfolio_with_user_name_and_about)
+  %td= request.service_date.present? ? request.service_date.strftime("%d/%m/%Y") : "-"
+  %td= request.service_time
+  %td= request.service_request_number
+  %td
+    %b= request.service_status
+  %td= user_ratings(request)
+  %td= user_actions(request)

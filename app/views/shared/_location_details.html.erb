@@ -1,0 +1,27 @@
+<div class="row error-container">
+  <div class="col-md-10 col-md-offset-1" style="margin-left: 30px;">
+    <div class="col-md-3 align-country">
+      <div class="form-group">
+        <label>Country</label>
+        <%= select_tag :country_selection, options_from_collection_for_select(Country.all, :id, :name), :prompt => "--- Select Services---" ,class: "form-control", data: {remote: true,url: get_states_and_cities_path,method: 'get'} %>
+        <label for="country_selection" class="error-title error"></label>
+      </div>
+    </div>
+    
+    <div class="col-md-3 col-md-offset-1" style="margin-left: 32px;">
+      <div class="form-group">
+        <div  id="state_selection">
+          <!-- Loding state dropdown through ajax call -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-3 col-md-offset-1" style="margin-left: 40px;">
+      <div class="form-group">
+        <div  id="city_selection">
+          <!-- Loding City dropdown through ajax call -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.container
+  .row
+    .add-new
+      = back_button_link(service_requests_path)
+  .panel.panel-primary
+    .panel-heading
+      %h3 Service Request Detail
+    .panel-body
+      .row
+        .col-sm-3
+          %p
+            = reservice_value_printer("Service Request Number: ", @service_request.service_request_number)
+        .col-sm-3
+          %p
+            = reservice_value_printer("Service: ", @service_request.service_name)          
+        .col-sm-3
+          %p
+            = reservice_value_printer("Service Due Date: ", @service_request.service_date.present? ? @service_request.service_date.strftime("%d/%m/%Y") : "-")              
+        .col-sm-3
+          %p
+            = reservice_value_printer("Time Slot:: ", @service_request.service_time)
+        .col-sm-3
+          %p
+            = reservice_value_printer("Status: ", @service_request.service_status)
+        .col-sm-3
+          %p
+            = reservice_value_printer("Assignee: ", @service_request.assignee_details)    
+        - if @service_request.feedback.present?   
+          .col-sm-3
+            %p
+              = reservice_value_printer("Remarks: ", @service_request.feedback.description)
+          .col-sm-3
+            %p
+              = user_ratings(@service_request)
+      .row
+        .col-sm-3
+          %b Address:
+          %br
+          = reservice_value_printer("Flat Number: ", @service_request.flat_number)
+          %br
+          = reservice_value_printer("Street Name: ", @service_request.street_name)
+          %br
+          = reservice_value_printer("City: ", @service_request.city.name)
+          %br
+          = reservice_value_printer("Pin Code:: ", @service_request.pin_code)
+      .row
+        .col-sm-10
+          = reservice_value_printer("Comments: ", @service_request.comment)

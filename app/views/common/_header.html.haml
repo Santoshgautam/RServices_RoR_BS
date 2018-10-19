@@ -1,0 +1,18 @@
+#demo-1{"data-zs-overlay" => "dots", "data-zs-src" => "['assets/2.jpg', 'assets/1.jpg', 'assets/3.jp']"}
+  .demo-inner-content
+    .banner-info
+      %h1
+        %a{:href => "#"}
+          R
+          %span.logo-sub Services
+      %h2
+        %span COME LOOK
+        %span AT THE SELECTION!
+      %p Eye it – Try it – Buy it!
+      / %form{:action => "#", :method => "post"}
+      .row
+        %br
+        %br
+        .search-two.search
+          = select_tag :city_id, options_from_collection_for_select(City.ordered, :id, :name), :prompt => "Select City", class: 'form-control', data: {remote: true,URL: get_services_by_city_path, method: 'get' }
+              

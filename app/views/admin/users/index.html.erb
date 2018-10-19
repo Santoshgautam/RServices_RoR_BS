@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="add-new">
+      <%=back_button_link(admin_root_path) %>
+    </div>
+  </div>  
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3>Users List</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>Created at</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.full_name %></td>
+              <td><%= user.phone_no %></td>
+              <td><%= users_city(user) %></td>
+              <td><%=l user.created_at %></td>
+              <td>
+                <%= link_to t('.show', :default => t("helpers.links.show")), admin_user_path(user), :class => 'btn btn-primary btn-xs' %>
+                <%= link_to "Service Requests", user_service_request_admin_user_path(user), :class => 'btn btn-primary btn-xs' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="pagination">
+    <%=will_paginate @service_requests %>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+/ .navbar-top-links
+.container
+  .row
+    .col-lg-12
+      %h3.header Admin Dashboard
+  .row
+    .col-lg-3.col-md-6
+      .panel.panel-primary
+        .panel-heading
+          .row
+            .col-xs-3
+              %i.fa.fa-plus.fa-5x
+            .col-xs-9.text-right
+              .huge
+              %div Create Service
+        %a{:href => "/admin/services/new"}
+          .panel-footer
+            %span.pull-left Create Service
+            %span.pull-right
+              %i.fa.fa-plus
+            .clearfix
+    .col-lg-3.col-md-6
+      .panel.panel-green
+        .panel-heading
+          .row
+            .col-xs-3
+              %i.fa.fa-tasks.fa-5x
+            .col-xs-9.text-right
+              .huge
+                = get_stats('Service')
+              %div View Services
+        %a{:href => "/admin/services"}
+          .panel-footer
+            %span.pull-left Service Details
+            %span.pull-right
+              %i.fa.fa-tasks
+            .clearfix
+    .col-lg-3.col-md-6
+      .panel.panel-yellow
+        .panel-heading
+          .row
+            .col-xs-3
+              %i.fa.fa-users.fa-5x
+            .col-xs-9.text-right
+              .huge
+                = get_stats("User")
+              %div Our Users
+        %a{:href => "/admin/users"}
+          .panel-footer
+            %span.pull-left User Details
+            %span.pull-right
+              %i.fa.fa-users
+            .clearfix
+    .col-lg-3.col-md-6
+      .panel.panel-red
+        .panel-heading
+          .row
+            .col-xs-3
+              %i.fa.fa-support.fa-5x
+            .col-xs-9.text-right
+              .huge
+                = get_stats('ServiceRequest')
+              %div Service Request
+        %a{:href => "/admin/service-requests"}
+          .panel-footer
+            %span.pull-left Service Request Details
+            %span.pull-right
+              %i.fa.fa-support
+            .clearfix
